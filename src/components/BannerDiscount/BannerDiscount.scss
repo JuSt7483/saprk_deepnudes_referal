@@ -1,0 +1,110 @@
+.discount {
+    padding: 20px;
+    border-radius: 16px;
+    background: linear-gradient(252deg, #15AE2F 7.97%, #039004 92.86%);
+
+    @include flex-column;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+
+    flex: 1 0 auto;
+
+    &--small {
+        @include flex-row(0, flex-end);
+        border-radius: 0;
+        padding: 8px 20px;
+    }
+
+    &__button {
+        position: relative;
+        z-index: 30 !important;
+    }
+
+    &__heading {
+        color: var(--White, #FFF);
+        @include font-inter-18-black-italic;
+        font-weight: 900;
+        text-transform: uppercase;
+
+        &--small {
+            @include abs-center;
+            white-space: nowrap;
+        }
+    }
+
+    &__description {
+        color: var(--White, #FFF);
+        @include font-manrope-14-medium;
+
+        margin-bottom: 23px;
+    }
+
+    &__button {
+        z-index: 5;
+    }
+
+    &__image {
+        position: absolute;
+        top: 27px;
+        right: -10px;
+        transform: rotate(7deg);
+        z-index: 10;
+
+        &--small {
+            left: -10px;
+            top: 6px;
+        }
+    }
+
+    &__tree {
+        position: absolute;
+
+        &--1 {
+            top: -10px;
+            right: -10px;
+        }
+
+        &--2 {
+            bottom: -10px;
+            left: 0;
+        }
+
+        &--3 {
+            top: -17px;
+            right: -15px;
+        }
+    }
+
+    &__hat {
+        position: absolute;
+        top: 15px;
+        right: -10px;
+        z-index: 10;
+    }
+
+    &__path {
+        @include flex-center;
+        transform: scale(1.1);
+        
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    &__circle {
+        position: absolute;
+        left: 50%;
+        top: 45px;
+        transform: translate(-50%);
+        width: 188px;
+        height: 188px;
+        flex-shrink: 0;
+        border-radius: 50%;
+
+        background-color: #FDFC47;
+        filter: blur(75px);
+        z-index: -1;
+    }
+}

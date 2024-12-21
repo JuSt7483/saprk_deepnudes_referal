@@ -1,0 +1,33 @@
+.privacy-page, .info-page {
+    &__textblock {
+        @include flex-column(10);
+
+        &-paragraph {
+            color: var(--Text-gray-Dark, #A5A5A5);
+            text-align: justify;
+
+            @include font-manrope-20-medium;
+        }
+        &-heading {
+            color: var(--White, #FFF);
+            align-self: stretch;
+
+            @include font-manrope-28-bold;
+        }
+        &-list {
+            list-style-position: inside;
+            list-style: disc;
+
+            margin-left: 35px;
+
+            color: var(--Text-gray-Dark, #A5A5A5);
+            text-align: justify;
+
+            @include font-manrope-20-medium;
+        }
+    }
+
+    &__content {
+        @include flex-column(30);
+    }
+}

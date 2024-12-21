@@ -1,0 +1,177 @@
+.navbar {
+    @include flex-column(10);
+    height: 100dvh;
+    width: 591px;
+    border-radius: 0px 50px 50px 0px;
+    background: var(--Black2, #0F0F0F);
+    padding: 52px 55px;
+    overscroll-behavior: contain;
+
+    overflow: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    animation: slideInRight 0.3s ease-out; // Анимация появления
+
+    &--exit {
+        animation: slideOutLeft 0.4s ease-in; // Анимация исчезновения
+    }
+
+    @include mobile {
+        padding: 15px 20px 32px 20px;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    &__header {
+        padding: 0 !important;
+        margin-bottom: 20px;
+    }
+
+    &__button {
+        &-wrapper {
+            border-radius: 20px;
+            background: var(--Black1, #060606);
+            padding: 30px;
+        }
+    }
+
+    &-list {
+        @include flex-column(8);
+
+        &__item {
+            @include flex-row(12);
+            align-items: center;
+            padding: 12px 20px;
+
+            cursor: pointer;
+            @include font-manrope-20-medium;
+            color: var(--Text-gray-Dark, #A5A5A5);
+        }
+
+        &__wrapper {
+            border-radius: 20px;
+            background: var(--Black1, #060606);
+            padding: 20px;
+        }
+    }
+
+    &__layout {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.40);
+        backdrop-filter: blur(20px);
+
+        transition: backdrop-filter 10s;
+
+        z-index: 100;
+    }
+
+    &-footer {
+        @include flex-column(12);
+        margin-top: auto;
+
+        &__buttons {
+            @include flex-row(12);
+    
+            &-item {
+                @include flex-row(5, center);
+                align-items: center;
+                flex: 1;
+                width: 100%;
+    
+                border-radius: 10px;
+                background: var(--Black3, #1D1D1D);
+                color: var(--White, #FFF);
+                @include font-manrope-16-bold;
+    
+                height: 60px;
+                padding: 0px 20px;
+
+                @include hover {
+                    border: 2px solid #5E5E5E;
+
+                    background: radial-gradient(209.9% 94.92% at 94.4% 92.5%, #235024 0%, #1D1D1D 100%);
+                }
+            }
+        }
+    }
+
+    &-user {
+        @include flex-row(20);
+        align-items: center;
+
+        &__avatar {
+            border-radius: 50%;
+        }
+
+        &__info {
+            @include flex-column;
+            flex: 1;
+            width: 100%;
+            &-name {
+                @include flex-row(10);
+
+                color: var(--White, #FFF);
+                font-family: var(--font-inter);
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 150%; /* 36px */
+            }
+
+            &-description {
+                color: var(--Text-gray-Dark, #A5A5A5);
+                @include font-manrope-12-regular;
+            }
+        }
+
+        &__balance {
+            @include flex-row(4);
+            padding: 4px 8px;
+            border-radius: 150px;
+            background: var(--Black4, #1B1B1B);
+            @include font-manrope-20-extrabold;
+        }
+
+        &__dropdown {
+            width: fit-content;
+            min-width: unset !important;
+            &-button {
+                @include reset-button;
+                @include flex-row(12);
+                align-items: center;
+                width: fit-content;
+                color: var(--Text-gray-Dark, #A5A5A5);
+                text-align: center;
+                @include font-manrope-20-medium;
+                padding: 0 !important;
+            }
+
+            .ant-dropdown-menu {
+                padding: 20px !important;
+            }
+        }
+    }
+
+    @keyframes slideInRight {
+        from {
+            transform: translateX(-200%);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideOutLeft {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-200%);
+        }
+    }
+}

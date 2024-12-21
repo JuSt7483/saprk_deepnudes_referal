@@ -1,0 +1,67 @@
+.referal-page {
+    &__inner {
+        @include flex-column(80);
+    }
+    
+    &__part {
+        @include flex-column(24, space-between);
+        border-radius: 20px;
+        background: var(--Black3, #1D1D1D);
+        padding: 24px;
+
+        flex: 1 0 0;
+    }
+
+    &__block {
+        @include flex-column(10);
+        border-radius: 12px;
+        background: var(--Black2, #0F0F0F);
+        padding: 16px 20px;
+
+        &-header {
+            @include flex-row(10, space-between);
+            @include font-inter-20-black-italic;
+            @include text-gradient(linear-gradient(90deg, #24FE41 0%, #FDFC47 100%));
+            padding-right: 3px;
+        }
+
+        &-icon {
+            width: 46px;
+            height: 46px;
+            @include flex-center;
+            border-radius: 50px;
+            background: var(--Black3, #1D1D1D);
+        }
+
+        &-text {
+            color: var(--Text-gray-Dark, #A5A5A5);
+            @include font-manrope-14-medium;
+        }
+    }
+
+    &__main {
+        @include flex-row(12);
+        flex-wrap: wrap;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 2fr;
+        gap: 12px;
+
+        @include mobile {
+            grid-template-columns: 1fr;
+            grid-template-rows: unset;
+            grid-auto-rows: auto;
+        }
+    }
+
+    &__input {
+        @include flex-column(12);
+        &-heading {
+            @include text-gradient;
+            @include font-roboto-mono-16-medium;
+        }
+    }
+}

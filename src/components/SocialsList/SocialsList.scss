@@ -1,0 +1,4 @@
+.socials {
+    @include flex-row(0, space-between);
+    width: 100%;
+}

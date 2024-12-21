@@ -1,0 +1,38 @@
+.notfound-page {
+    @include flex-column;
+
+    &__title {
+        @include fluid-text(517, 260);
+        color: #4E4E4E;
+        text-align: center;
+        -webkit-text-strokeWidth: 2;
+        -webkit-text-stroke-color: #000;
+        font-family: var(--font-manrope);
+        font-style: normal;
+        font-weight: 700;
+        line-height: 120%; /* 620.4px */
+        letter-spacing: -10.34px;
+    }
+
+    &__text {
+        @include font-manrope-40-bold;
+        text-align: center;
+    }
+
+    &__info {
+        @include flex-row(20, space-between);
+        flex-wrap: wrap;
+        @include mobile {
+            justify-content: center;
+        }
+    }
+
+    &__button {
+        flex: 0 !important;
+        white-space: nowrap;
+
+        @include mobile {
+            flex: 1 !important;
+        }
+    }
+}

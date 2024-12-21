@@ -1,0 +1,96 @@
+.account-convert {
+    color: var(--grey, #93949A);
+    border-radius: 20px;
+    @include flex-column(16, space-between);
+    height: 100%;
+
+    &__heading {
+        @include font-roboto-mono-16-medium;
+        @include text-gradient;
+        text-align: center;
+    }
+
+    &__main {
+        @include flex-column(4);
+        position: relative;
+        &-part {
+            @include flex-row(10, space-between);
+            border-radius: 16px;
+            background: var(--Black2, #0F0F0F);
+            padding: 20px;
+        }
+
+        &-text {
+            @include flex-column(4);
+
+            font-family: var(--font-inter);
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%; /* 21px */
+        }
+
+        &-row {
+            @include flex-row(4);
+
+            &--color-white {
+                color: #fff;
+            }
+        }
+
+        &-icon {
+            border-radius: 50%;
+            background: var(--Text-gray-Dark, #A5A5A5);
+            width: 20px;
+            height: 20px;
+        }
+
+        &-value {
+            @include flex-row(4);
+            @include font-manrope-40-medium;
+            align-items: center;
+            color: #fff;
+        }
+
+        &-arrow {
+            @include abs-center;
+            @include flex-center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--Gr2);
+        }
+    }
+
+    &__course {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 6px;
+        flex-wrap: wrap;
+
+        font-size: 14px;
+        font-style: normal;
+        font-weight: var(--sds-typography-weight-regular);
+        line-height: 150%; /* 21px */
+
+        &-icon {
+            svg *[fill] {
+                fill: revert-layer !important;
+            }
+            @include flex-center;
+            margin-left: 3px;
+        }
+
+        &-symbol {
+            margin-inline: 7px;
+        }
+
+        &-equation {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+}

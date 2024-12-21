@@ -1,0 +1,195 @@
+{
+  "PricingCard": {
+    "choose-plan": "Choose a plan",
+    "most-popular": "MOST POPULAR"
+  },
+  "FAQ": {
+    "howToUse": {
+      "1": {
+        "title": "Register",
+        "info": "1. Go to the main page; <br></br> 2. Click on the registration button;<br></br>3. Fill in the required fields: your email, create a password;<br></br>4. Finish registration: check your email and activate your account"
+      },
+      "2": {
+        "title": "Explore the interface",
+        "info": "-Home page: information about product updates and news.<br></br>-Gallery: examples of works created with Deep Nude AI.<br></br>-Support: access to FAQ and support contact information."
+      },
+      "3": {
+        "title": "Uploading photos",
+        "info": "1. Click on the generate image button;<br></br>2. Click on the upload file and select the image you want to edit;<br></br>3. Make sure the image fits the platform parameters (maximum size, format, etc.), and don't forget about photos that can't be used for ethical reasons."
+      },
+      "4": {
+        "title": "Setting parameters",
+        "info": "Choose the desired style, filter. Use the functions you need. Experiment!"
+      },
+      "5": {
+        "title": "Processing photos",
+        "info": "1. Click on \"Generate\".<br></br>2. Wait, the processing time depends on the complexity of the image and the selected functions."
+      },
+      "6": {
+        "title": "Uploading results",
+        "info": "1. Once the processing is complete, you will receive a notification; <br></br> 2. Click on download to save the image to your device."
+      },
+      "7": {
+        "title": "Feedback and support",
+        "info": "If you have any questions or difficulties, please contact us.<br></br>Check the FAQ section for popular questions.<br></br>Now you are ready to use our service to create photos. We hope that you will enjoy working with our product and that you will stay with us. If you have any questions or suggestions, do not worry and contact us, we are always happy to help. Generate your first deepnude images right now!"
+      }
+    },
+    "homeFaq": {
+      "1": {
+        "title": "How long does it take to generate the images?",
+        "info": "The time it takes to generate images may vary. The speed of our service depends on several factors. Image complexity, platform load, image quality, etc. Typically, image generation takes from a few seconds to a couple of minutes."
+      },
+      "2": {
+        "title": "Can AI undresser be used on any type of image?",
+        "info": "There are several important factors: ethical aspects (make sure your photos meet security criteria), technical aspects (it is best to use good quality photos) before using AI, it is recommended to read what types of images can be generated."
+      },
+      "3": {
+        "title": "How to use Deep Nude AI safely?",
+        "info": "Do not share your account password with other people. Avoid uploading personal photos without the other person's consent. Do not neglect the privacy of others and act carefully on the site. Read the security block before using. Remember that any illegal actions can lead to account blocking."
+      },
+      "4": {
+        "title": "Is it free to use our service?",
+        "info": "We offer some features for free. Try it now!"
+      },
+      "5": {
+        "title": "Is there a bonus program?",
+        "info": "Of course, we have a referral program. Invite your friends and get gifts to your accounts!"
+      },
+      "6": {
+        "title": "What is it and how does it work?",
+        "info": "Deep nude ai is a new AI-based technology that \"undresses\" photos. This technology uses existing photos to generate new nude images."
+      }
+    }
+  },
+  "HomePage": {
+    "banner": {
+      "info": {
+        "heading": "Undress anyone",
+        "description": "Upload a photo and enjoy AI undressing processing in a few seconds! No limits with Deep Nude AI to develop your imagination"
+      },
+      "heading": {
+        "text": "Deep Nude AI creator",
+        "button": "Undress",
+        "button-login": "Login"
+      }
+    },
+    "features": {
+      "1": {
+        "heading": "Image Generation",
+        "description": "AI is equipped with advanced algorithms that can be used to create realistic photos based on existing ones."
+      },
+      "2": {
+        "heading": "Editing and Personalizing Content",
+        "description": "You can create unique photos, thanks to a huge number of tools. All tools are easy to use due to the user-friendly interface."
+      },
+      "3": {
+        "heading": "Pro Tools",
+        "description": "If you are an advanced user, we offer a wide range of tools that are suitable for professionals."
+      }
+    },
+    "celebrity": {
+      "heading": "Undress Favorite Celebrities",
+      "description": "With artificial intelligence generating nude bodies, you can undress your favorite celebrity or just a friend online, now it's real!",
+      "button": "Try for free"
+    },
+    "pricing": {
+      "heading": "Pricing plans"
+    },
+    "how": {
+      "heading": "How to start using it?",
+      "description": "To help you quickly understand our naked image maker, we have prepared a step-by-step guide on how to use our site."
+    },
+    "referal": {
+      "title": "Referal program",
+      "badge": {
+        "text": "5 invitations ="
+      },
+      "heading": "Get real money",
+      "description": "Invite friends and earn money in your account",
+      "button": "Invite friends"
+    },
+    "undress": {
+      "heading": "Undress Anyone",
+      "description": "It doesn't matter who exactly you want to undress anyone online, our artificial intelligence website will bring your fantasy to life in a matter of minutes."
+    },
+    "faq": {
+      "heading": "FAQ (Frequently Asked Questions)"
+    }
+  },
+  "VerificationStatus": {
+    "loading": "Loading...",
+    "failed": "Email link verification failed",
+    "expired": "Email link expired",
+    "success": "Successfully signed in. Return to the original tab to continue."
+  },
+  "Instruction": {
+    "ios": {
+      "steps": {
+        "1": {
+          "title": "Open site",
+          "description": "Open the deep-nudes.com website in the Safari browser"
+        },
+        "2": {
+          "title": "Click on the «Share» icon",
+          "description": "Click on the «Share» icon (located on the bottom toolbar and is a rectangle with an upward pointing arrow)"
+        },
+        "3": {
+          "title": "Add to Home Screen",
+          "description": "From the scrolling menu that appears, select «Add to Home Screen»"
+        },
+        "4": {
+          "title": "Enter a name",
+          "description": "Enter a name for the shortcut, and then click «Add»"
+        },
+        "5": {
+          "title": "Done!",
+          "description": "Once added, neurona.com will run as a web application on your home screen, offering a seamless full-screen experience without a browser address bar"
+        }
+      }
+    },
+    "android": {
+      "steps": {
+        "1": {
+          "title": "Open site",
+          "description": "Open the Neurona.com website in the Safari browser"
+        },
+        "2": {
+          "title": "Tap on the «Share» icon",
+          "description": "Click on the three vertical dots located in the upper right corner to open the browser menu"
+        },
+        "3": {
+          "title": "Add to Home Screen",
+          "description": "Select «Install Application» from the drop-down menu"
+        },
+        "4": {
+          "title": "Enter a name",
+          "description": "Follow the prompts to add a web application to the Home screen"
+        },
+        "5": {
+          "title": "Done!",
+          "description": "Once installed, deep-nudes.com will run on your device as a web app, offering a smooth full-screen experience similar to native apps"
+        }
+      }
+    }
+  },
+  "ModalInstruction": {
+    "steps": {
+      "1": {
+        "title": "Avoid baggy clothes",
+        "description": "Upload a good quality photo, so the AI can deliver the best result."
+      },
+      "2": {
+        "title": "only one person in the photo",
+        "description": "Upload a good quality photo, so the AI can deliver the best result."
+      },
+      "3": {
+        "title": "Girl centered",
+        "description": "Upload a good quality photo, so the AI can deliver the best result."
+      },
+      "4": {
+        "title": "Try new feature",
+        "description": "Upload a good quality photo, so the AI can deliver the best result."
+      }
+    }
+  }
+}

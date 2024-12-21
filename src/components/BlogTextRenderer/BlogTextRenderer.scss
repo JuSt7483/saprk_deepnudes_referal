@@ -1,0 +1,18 @@
+.text-renderer {
+    &__text {
+        @include font-manrope-16-regular;
+        color: var(--White, #FFF);
+
+        &--italic {
+            font-style: italic;
+        }
+    }
+
+    &__image {
+        width: fit-content;
+        height: auto;
+
+        margin-block: 20px;
+        border-radius: 20px;
+    }
+}

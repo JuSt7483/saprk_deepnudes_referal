@@ -1,0 +1,33 @@
+.modalrules {
+    @include flex-column;
+    &__heading {
+        align-self: center;
+        @include text-gradient;
+        @include font-inter-32-black-italic;
+        font-weight: 900;
+
+        margin-bottom: 5px;
+    }
+
+    &__description {
+        max-width: 300px;
+        @include font-manrope-14-medium;
+        align-self: center;
+        text-align: center;
+
+        margin-bottom: 20px;
+    }
+
+    &__list {
+        @include flex-column(10);
+        border-radius: 16px;
+        padding: 20px;
+        background: var(--Black2, #0F0F0F);
+
+        margin-bottom: 20px;
+        
+        &-item {
+            margin-left: 20px;
+        }
+    }
+}

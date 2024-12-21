@@ -1,0 +1,1697 @@
+components:
+  schemas:
+    Balance:
+      example:
+        - amount: 0
+          currency: BTC
+          type: crypto
+        - amount: 0
+          currency: ETH
+          type: crypto
+        - amount: 0
+          currency: USDT_ERC20
+          type: crypto
+        - amount: 0
+          currency: USDT_TRC20
+          type: crypto
+        - amount: 0
+          currency: USDT_BEP20
+          type: crypto
+        - amount: 0
+          currency: ETH_BEP20
+          type: crypto
+        - amount: 0
+          currency: USDC_BEP20
+          type: crypto
+        - amount: 0
+          currency: USDC
+          type: crypto
+        - amount: 0
+          currency: BUSD
+          type: crypto
+        - amount: 0
+          currency: DAI
+          type: crypto
+        - amount: 0
+          currency: BNB
+          type: crypto
+        - amount: 0
+          currency: MATIC_Polygon
+          type: crypto
+        - amount: 0
+          currency: USDT_Polygon
+          type: crypto
+        - amount: 0
+          currency: TRX
+          type: crypto
+        - amount: 0
+          currency: TON
+          type: crypto
+        - amount: 0
+          currency: EUR
+          type: fiat
+        - amount: 0
+          currency: USD
+          type: fiat
+        - amount: 0
+          currency: RUB
+          type: fiat
+      type: object
+    CallbackResponse:
+      properties:
+        callbackId:
+          type: integer
+        id:
+          format: uuidv4
+          type: string
+        operations:
+          items:
+            $ref: '#/components/schemas/Deposit'
+          type: array
+        referenceId:
+          nullable: true
+          type: string
+        status:
+          enum:
+            - new
+            - processing
+            - executed
+            - cancelled
+            - reversed
+          example: incoming
+          type: string
+        statusNote:
+          example: Deposit successfully executed
+          nullable: true
+          type: string
+        timestampCreated:
+          format: date-time
+          type: string
+        timestampUpdated:
+          format: date-time
+          type: string
+        type:
+          enum:
+            - incoming
+            - outgoing
+            - withdrawal
+            - fiat_manual_withdrawal
+            - deposit
+          example: incoming
+          type: string
+      required:
+        - id
+        - type
+        - status
+        - timestampCreated
+        - callbackId
+      type: object
+    Callbacks:
+      properties:
+        createAt:
+          format: date-time
+          type: string
+        events:
+          example:
+            - incoming
+            - outgoing
+            - withdrawal
+            - fiat_manual_withdrawal
+            - deposit
+          items:
+            type: string
+          type: array
+        id:
+          example: '1'
+          type: integer
+        url:
+          example: https:/example.com/123?q=1&p=2
+          type: string
+      required:
+        - id
+        - url
+        - createAt
+        - events
+      type: object
+    Deposit:
+      properties:
+        addressDestination:
+          type: string
+        addressSource:
+          nullable: true
+          type: string
+        amount:
+          format: float
+          type: number
+        amountFinal:
+          format: float
+          type: number
+        currency:
+          type: string
+        id:
+          type: integer
+        serviceFee:
+          type: string
+        status:
+          enum:
+            - new
+            - processing
+            - executed
+            - cancelled
+            - reversed
+          example: processing
+          type: string
+        txHash:
+          type: string
+        type:
+          enum:
+            - deposit
+            - exchange
+            - withdrawal
+            - fiat_manual_withdrawal
+          example: deposit
+          type: string
+      required:
+        - id
+        - type
+        - status
+        - currency
+        - amount
+        - servceFee
+        - amountFinal
+        - txHash
+      type: object
+    Error:
+      properties:
+        code:
+          type: string
+        issueID:
+          type: string
+        message:
+          type: string
+      required:
+        - message
+      type: object
+    Exchange:
+      properties:
+        amount:
+          format: float
+          type: number
+        amountFinal:
+          format: float
+          nullable: true
+          type: number
+        currency:
+          example: BTC
+          type: string
+        exchangeFrom:
+          example: EUR
+          type: string
+        id:
+          type: integer
+        rate:
+          format: float
+          nullable: true
+          type: number
+        status:
+          enum:
+            - new
+            - processing
+            - executed
+            - cancelled
+            - reversed
+          example: processing
+          type: string
+        type:
+          enum:
+            - deposit
+            - exchange
+            - withdrawal
+            - fiat_manual_withdrawal
+          example: exchange
+          type: string
+      required:
+        - id
+        - type
+        - status
+        - currency
+        - exchangeFrom
+        - amount
+      type: object
+    FiatManualWithdrawal:
+      properties:
+        amount:
+          format: float
+          type: number
+        currency:
+          type: string
+        ibanFrom:
+          type: string
+        ibanTo:
+          type: string
+        id:
+          type: integer
+        status:
+          enum:
+            - new
+            - processing
+            - executed
+            - cancelled
+            - reversed
+          example: processing
+          type: string
+        type:
+          enum:
+            - deposit
+            - exchange
+            - withdrawal
+            - fiat_manual_withdrawal
+          example: fiat_manual_withdrawal
+          type: string
+      required:
+        - id
+        - type
+        - status
+        - currency
+        - amount
+        - ibanTo
+        - ibanFrom
+        - timestampCreated
+        - timestampUpdated
+      type: object
+    Transactions:
+      properties:
+        amount:
+          format: float
+          type: number
+        amountType:
+          enum:
+            - gross
+            - net
+            - purchase
+          example: gross
+          nullable: true
+          type: string
+        id:
+          format: uuidv4
+          type: string
+        operations:
+          items:
+            $ref: '#/components/schemas/Deposit'
+          type: array
+        referenceId:
+          nullable: true
+          type: string
+        status:
+          enum:
+            - new
+            - processing
+            - executed
+            - cancelled
+            - reversed
+          example: processing
+          type: integer
+        statusNote:
+          example: Deposit successfully executed
+          nullable: true
+          type: string
+        timestampCreated:
+          format: date-time
+          type: string
+        timestampUpdated:
+          format: date-time
+          type: string
+        type:
+          enum:
+            - incoming
+            - outgoing
+            - withdrawal
+            - fiat_manual_withdrawal
+            - deposit
+          example: incoming
+          type: string
+      required:
+        - id
+        - type
+        - amount
+        - status
+        - timestampCreated
+      type: object
+    Withdrawal:
+      properties:
+        address:
+          type: string
+        amount:
+          format: float
+          type: number
+        amountFinal:
+          format: float
+          type: number
+        currency:
+          type: string
+        id:
+          type: integer
+        serviceFee:
+          type: string
+        status:
+          enum:
+            - new
+            - processing
+            - executed
+            - cancelled
+            - reversed
+          example: processing
+          type: string
+        txHash:
+          nullable: true
+          type: string
+        type:
+          enum:
+            - deposit
+            - exchange
+            - withdrawal
+            - fiat_manual_withdrawal
+          example: withdrawal
+          type: string
+      required:
+        - id
+        - type
+        - status
+        - address
+        - currency
+        - amount
+        - serviceFee
+        - amountFinal
+      type: object
+  securitySchemes:
+    xApiKey:
+      in: header
+      name: X-API-KEY
+      type: apiKey
+info:
+  contact:
+    email: support@ecng.digital
+  description: "Tunell .finance GateWay API by [ECNG.digital](https://ecng.digital).\
+    \ <br>  This API is designed for merchants to use all functions of GateWay product\
+    \ via the API key assigned to their account. <br> Enter your API key to <b>\u201C\
+    Authorize\u201D</b> box in order to test out the functionality."
+  termsOfService: https://ecng.digital/TOS
+  title: Tunell Gateway
+  version: 0.0.1
+openapi: 3.0.0
+paths:
+  /addresses:
+    post:
+      description: ''
+      operationId: post_api_create_address
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                currency:
+                  description: The name of currency to be deposited
+                  enum:
+                    - BTC
+                    - ETH
+                    - USDT_ERC20
+                    - USDT_BEP20
+                    - USDT_TRC20
+                    - ETH_BEP20
+                    - USDC_BEP20
+                    - USDC
+                    - BUSD
+                    - DAI
+                    - BNB
+                    - USDT_Polygon
+                    - TRX
+                    - TON
+                  type: string
+                referenceId:
+                  description: The external identifier of the transaction
+                  type: string
+              required:
+                - currency
+              type: object
+        description: ''
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  address:
+                    example: bc1q42lja79elem0anu8q8s3h2n687re9jax556pcc
+                    type: string
+                  currency:
+                    example: BTC
+                    type: string
+                  legacyAddress:
+                    example: 15e15hWo6CShMgbAfo8c2Ykj4C6BLq6Not
+                    type: string
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '504':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+      security:
+        - xApiKey: []
+      summary: Create a new address to receive crypto funds
+      tags:
+        - DEPOSITS
+  /assets/networkFee/{currency}:
+    get:
+      description: ''
+      operationId: get_api_assets_network_fee
+      parameters:
+        - description: The name of currency
+          in: path
+          name: currency
+          required: true
+          schema:
+            enum:
+              - BTC
+              - ETH
+              - TRX
+              - TON
+              - Stable_ERC20
+              - Stable_TRC20
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  inNative:
+                    format: float
+                    type: number
+                  inStable:
+                    format: float
+                    type: number
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '504':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+      security:
+        - xApiKey: []
+      summary: Get live network fee for major currencies
+      tags:
+        - ASSETS
+  /assets/rates/{pair}:
+    get:
+      description: "Returns live bid for a trading\
+        \ pair. <br>\n     * IMPORTANT: Prices do not include the service commission\
+        \ applied to the account."
+      operationId: get_api_rate
+      parameters:
+        - description: The pair of two currencies
+          in: path
+          name: pair
+          required: true
+          schema:
+            enum:
+              - BTC:USD
+              - ETH:USD
+              - USDT_ERC20:USD
+              - USDT_TRC20:USD
+              - BTC:EUR
+              - BTC:USDT_ERC20
+              - ETH:EUR
+              - ETH:USDT_ERC20
+              - USDT_ERC20:EUR
+              - USDT_TRC20:EUR
+              - ETH_BEP20:EUR
+              - USDC_BEP20:EUR
+              - ETH_BEP20:USDT_ERC20
+              - ETH_BEP20:USD
+              - USDC_BEP20:USD
+              - USDT_Polygon:USD
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  ask:
+                    type: integer
+                  bid:
+                    type: integer
+                  pair:
+                    type: string
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '504':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+      security:
+        - xApiKey: []
+      summary: Get live exchange rates for major currency pairs
+      tags:
+        - ASSETS
+  /assets/supported:
+    get:
+      operationId: get_api_supported_assets
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  supportedCurrencies:
+                    items:
+                      properties:
+                        currency:
+                          example: BTC
+                          type: string
+                        currencyName:
+                          example: Bitcoin
+                          type: string
+                        decimals:
+                          example: '8'
+                          type: integer
+                        transactionTypes:
+                          items:
+                            properties:
+                              deposit:
+                                properties:
+                                  supported:
+                                    example: true
+                                    type: boolean
+                                type: object
+                              incoming:
+                                properties:
+                                  exchangeTo:
+                                    example:
+                                      - USD
+                                      - EUR
+                                      - USDT_ERC20
+                                    items:
+                                      type: string
+                                    type: array
+                                  supported:
+                                    example: true
+                                    type: boolean
+                                type: object
+                              outgoing:
+                                properties:
+                                  exchangeFrom:
+                                    example:
+                                      - USD
+                                      - EUR
+                                      - USDT_ERC20
+                                    items:
+                                      type: string
+                                    type: array
+                                  supported:
+                                    example: true
+                                    type: boolean
+                                type: object
+                              withdrawal:
+                                properties:
+                                  supported:
+                                    example: true
+                                    type: boolean
+                                type: object
+                            type: object
+                          type: array
+                      type: object
+                    type: array
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '504':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+      security:
+        - xApiKey: []
+      tags:
+        - ASSETS
+  /balance:
+    get:
+      description: ''
+      operationId: get_api_account_balance
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Balance'
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '504':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+      security:
+        - xApiKey: []
+      summary: ''
+      tags:
+        - ACCOUNT
+  /callbacks:
+    get:
+      description: ''
+      operationId: get_api_callback_list
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Callbacks'
+                type: array
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '504':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+      security:
+        - xApiKey: []
+      summary: Get list of all active callbacks
+      tags:
+        - CALLBACKS
+    post:
+      description: ''
+      operationId: post_api_callback_create
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                transactions:
+                  items:
+                    enum:
+                      - incoming
+                      - outgoing
+                      - withdrawal
+                      - fiat_manual_withdrawal
+                      - deposit
+                  type: array
+                url:
+                  example: https://example.com/123?q=1&p=2
+                  type: string
+              required:
+                - url
+                - transactions
+              type: object
+        description: ''
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '504':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+      security:
+        - xApiKey: []
+      summary: Create a new callback
+      tags:
+        - CALLBACKS
+  /callbacks/{id}:
+    delete:
+      description: ''
+      operationId: delete_api_callback_delete
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: number
+      responses:
+        '204':
+          content:
+            application/json:
+              schema:
+                properties:
+                  status:
+                    example: 'true'
+                    type: boolean
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '504':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+      security:
+        - xApiKey: []
+      summary: Delete specific callback
+      tags:
+        - CALLBACKS
+  /deposits/fiat/accounts:
+    get:
+      description: ''
+      operationId: get_api_get_banks
+      parameters:
+        - in: query
+          name: currency
+          required: true
+          schema:
+            enum:
+              - EUR
+              - USD
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  fiatDepositSupportedBanks:
+                    items:
+                      properties:
+                        account:
+                          items:
+                            properties:
+                              currency:
+                                example: EUR
+                                type: string
+                              iban:
+                                example: LT601010012345678901
+                                type: string
+                            type: object
+                          type: array
+                        bank:
+                          example: Bank Name
+                          type: string
+                        bankId:
+                          example: '123'
+                          type: integer
+                      type: object
+                    type: array
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '504':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+      security:
+        - xApiKey: []
+      summary: Get list of banks
+      tags:
+        - DEPOSITS
+  /deposits/fiat/dra:
+    post:
+      description: ''
+      operationId: post_api_create_dra
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                amount:
+                  description: The amount of funds to be deposited
+                  example: '0.01'
+                  format: float
+                  type: number
+                bankId:
+                  description: The identifier of the bank
+                  example: '1'
+                  type: integer
+                currency:
+                  description: The name of currency to be deposited
+                  enum:
+                    - EUR
+                    - USD
+                  type: string
+                iban:
+                  description: The destination IBAN
+                  example: LT601010012345678901
+                  type: string
+              required:
+                - currency
+                - amount
+                - bankId
+                - iban
+              type: object
+        description: ''
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    example: '1'
+                    type: integer
+                  status:
+                    enum:
+                      - new
+                      - confirmed
+                      - canceled
+                    example: new
+                    type: string
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '504':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+      security:
+        - xApiKey: []
+      summary: Create a new deposit request acknowledgement
+      tags:
+        - DEPOSITS
+  /deposits/fiat/dra/{draId}:
+    get:
+      description: ''
+      operationId: get_api_get_dra
+      parameters:
+        - in: path
+          name: draId
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    example: '1'
+                    type: integer
+                  status:
+                    enum:
+                      - new
+                      - confirmed
+                      - canceled
+                    example: confirmed
+                    type: string
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '504':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+      security:
+        - xApiKey: []
+      summary: Get a previously created deposit request acknowledgement
+      tags:
+        - DEPOSITS
+  /incomings:
+    post:
+      description: ''
+      operationId: post_api_create_incoming
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                currency:
+                  description: The name of currency to be deposited
+                  enum:
+                    - BTC
+                    - ETH
+                    - USDT_ERC20
+                    - USDT_TRC20
+                    - USDC_BEP20
+                    - ETH_BEP20
+                    - USDT_Polygon
+                  type: string
+                exchangeTo:
+                  description: The exchange currency name
+                  enum:
+                    - EUR
+                    - USD
+                    - USDT_ERC20
+                  type: string
+                referenceId:
+                  description: The external identifier of the transaction
+                  type: string
+              required:
+                - currency
+                - exchangeTo
+              type: object
+        description: ''
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  address:
+                    example: bc1q42lja79elem0anu8q8s3h2n687re9jax556pcc
+                    type: string
+                  legacyAddress:
+                    example: 15e15hWo6CShMgbAfo8c2Ykj4C6BLq6Not
+                    type: string
+                  pair:
+                    example: BTC:EUR
+                    type: string
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '504':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+      security:
+        - xApiKey: []
+      summary: Create a new address to receive crypto funds and auto-exchange to fiat
+      tags:
+        - DEPOSITS
+  /outgoings:
+    post:
+      description: ''
+      operationId: post_api_create_outgoing
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                address:
+                  description: The withdrawal destination address
+                  example: bc1q42lja79elem0anu8q8s3h2n687re9jax556pcc
+                  type: string
+                amount:
+                  description: The amount of funds to be withdrawn
+                  example: '0.001'
+                  format: float
+                  type: number
+                amountType:
+                  description: Allows to specify if amount value represents actual
+                    'gross' amount,
+                    'net' amount (a crypto amount after service fee deductions and
+                    what actually recipient will recieve) or 'purchase' amount (a
+                    crypto amount to be purchased)
+                  enum:
+                    - gross
+                    - net
+                    - purchase
+                  type: string
+                currency:
+                  description: The currency of funds to be withdrawn
+                  enum:
+                    - BTC
+                    - ETH
+                    - USDT_ERC20
+                    - USDT_TRC20
+                    - USDC_BEP20
+                    - ETH_BEP20
+                    - USDT_Polygon
+                  type: string
+                exchangeFrom:
+                  description: The FIAT/stablecoin currency name to exchange crypto
+                    from
+                  enum:
+                    - EUR
+                    - USDT_ERC20
+                    - USD
+                  type: string
+                referenceId:
+                  description: The external identifier of the withdrawal
+                  type: string
+              required:
+                - address
+                - amount
+                - amountType
+                - currency
+                - exchangeFrom
+              type: object
+        description: ''
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  transactionId:
+                    example: 00000000-0000-0000-0000-000000000000
+                    type: string
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '504':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+      security:
+        - xApiKey: []
+      summary: Create a new crypto withdrawal with auto-exchange from fiat or another
+        crypto
+      tags:
+        - WITHDRAWALS
+  /referenceId/{referenceId}:
+    get:
+      description: ''
+      operationId: get_api_reference_id
+      parameters:
+        - in: path
+          name: referenceId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - properties:
+                      list:
+                        items:
+                          properties:
+                            address:
+                              example: bc1q42lja79elem0anu8q8s3h2n687re9jax556pcc
+                              type: string
+                            currency:
+                              example: BTC
+                              type: string
+                            legacyAddress:
+                              example: 15e15hWo6CShMgbAfo8c2Ykj4C6BLq6Not
+                              type: string
+                          type: object
+                        type: array
+                    type: object
+                  - properties:
+                      list:
+                        items:
+                          properties:
+                            address:
+                              example: bc1q42lja79elem0anu8q8s3h2n687re9jax556pcc
+                              type: string
+                            legacyAddress:
+                              example: 15e15hWo6CShMgbAfo8c2Ykj4C6BLq6Not
+                              type: string
+                            pair:
+                              example: BTC:EUR
+                              type: string
+                          type: object
+                        type: array
+                    type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '504':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+      security:
+        - xApiKey: []
+      summary: Get a previously generated address for a reference id
+      tags:
+        - DEPOSITS
+  /time:
+    get:
+      description: ''
+      operationId: get_api_time
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  serverTime:
+                    format: date-time
+                    type: string
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+      security:
+        - xApiKey: []
+      summary: Check server time
+      tags:
+        - SERVER TIME
+  /transactions:
+    get:
+      description: ''
+      operationId: get_api_transactions_get_page_limit
+      parameters:
+        - in: query
+          name: page
+          required: false
+          schema:
+            default: '1'
+            minimum: 1
+            type: number
+        - in: query
+          name: limit
+          required: false
+          schema:
+            default: '10'
+            minimum: 1
+            type: number
+        - in: query
+          name: name
+          required: false
+          schema:
+            enum:
+              - incoming
+              - outgoing
+              - withdrawal
+              - fiat_manual_withdrawal
+              - deposit
+            type: string
+        - in: query
+          name: sort
+          required: false
+          schema:
+            default: descending
+            description: Sorting for create datetime
+            enum:
+              - ascending
+              - descending
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  list:
+                    items:
+                      $ref: '#/components/schemas/Transactions'
+                    type: array
+                  pagination:
+                    properties:
+                      currentPage:
+                        type: integer
+                      limitItems:
+                        type: integer
+                      totalItems:
+                        type: integer
+                      totalPages:
+                        type: integer
+                    type: object
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '504':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+      security:
+        - xApiKey: []
+      summary: Get list of all transactions
+      tags:
+        - TRANSACTIONS
+  /transactions/{id}:
+    get:
+      description: ''
+      operationId: get_api_transactions_get_id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transactions'
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '504':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+      security:
+        - xApiKey: []
+      summary: Get specific transaction data
+      tags:
+        - TRANSACTIONS
+  /withdrawals:
+    post:
+      description: ''
+      operationId: post_api_create_withdraw
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                address:
+                  description: The withdrawal destination address
+                  example: bc1q42lja79elem0anu8q8s3h2n687re9jax556pcc
+                  type: string
+                amount:
+                  description: The amount of funds to be withdrawn
+                  example: '0.001'
+                  format: float
+                  type: number
+                amountType:
+                  description: Allows to specify if amount value represents actual
+                    'gross' amount or 'net' amount
+                    (after service fee deductions and what actually recipient will
+                    recieve)
+                  enum:
+                    - gross
+                    - net
+                  example: gross
+                  type: string
+                currency:
+                  description: The currency of funds to be withdrawn
+                  enum:
+                    - BTC
+                    - ETH
+                    - USDT_ERC20
+                    - USDT_BEP20
+                    - USDT_TRC20
+                    - ETH_BEP20
+                    - USDC_BEP20
+                    - USDC
+                    - BUSD
+                    - DAI
+                    - BNB
+                    - USDT_Polygon
+                    - TRX
+                    - TON
+                  type: string
+                referenceId:
+                  description: The external identifier of the withdrawal
+                  type: string
+              required:
+                - currency
+                - address
+                - amount
+                - amountType
+              type: object
+        description: ''
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  transactionId:
+                    example: 00000000-0000-0000-0000-000000000000
+                    type: string
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '504':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+      security:
+        - xApiKey: []
+      summary: Create a new crypto withdrawal
+      tags:
+        - WITHDRAWALS
+  /withdrawals/fiat:
+    post:
+      description: ''
+      operationId: post_api_create_fiat_manual_withdrawal
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                amount:
+                  description: The amount of funds to be withdrawn
+                  example: '0.01'
+                  format: float
+                  type: number
+                currency:
+                  description: The currency of funds to be withdrawn
+                  enum:
+                    - EUR
+                    - USD
+                  type: string
+                ibanTo:
+                  description: The withdrawal destination address
+                  example: LT663080020000000366
+                  type: string
+              required:
+                - currency
+                - ibanTo
+                - amount
+              type: object
+        description: ''
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    example: 00000000-0000-0000-0000-000000000000
+                    type: string
+                  status:
+                    enum:
+                      - new
+                      - processing
+                      - executed
+                      - cancelled
+                      - reversed
+                    example: new
+                    type: string
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+        '504':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: ''
+      security:
+        - xApiKey: []
+      summary: Create a new fiat manual withdrawal
+      tags:
+        - WITHDRAWALS
+security:
+  - xApiKey:
+      - X-API-KEY
+servers:
+  - url: https://sandbox-live-tunell-gateway.ecng.digital
+tags:
+  - description: Account information
+    name: ACCOUNT
+  - description: Allows to retrieve assets information
+    name: ASSETS
+  - description: Deposits create addresses to receive crypto funds
+    name: DEPOSITS
+  - description: Withdrawals send funds from your balance to any specified crypto address
+    name: WITHDRAWALS
+  - description: Transactions retrieve all transaction related data
+    name: TRANSACTIONS
+  - description: Callbacks allow to manage specific URLs for retrieving state changes
+      of initiated processes
+    name: CALLBACKS
+  - name: SERVER TIME

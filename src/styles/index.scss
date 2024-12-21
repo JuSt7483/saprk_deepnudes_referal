@@ -1,0 +1,17 @@
+@import
+    'variables',
+    'media',
+    'mixins',
+    'normalize',
+    'utils',
+    'fonts',
+    'globals';
+
+@import
+    'blocks/layout',
+    'blocks/footer',
+    'blocks/header',
+    'blocks/burger',
+    'blocks/notfound',
+    'blocks/language',
+    'blocks/info';

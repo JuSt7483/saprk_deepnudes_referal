@@ -1,0 +1,39 @@
+:root {
+    --container-width: 950px;
+    --container-large-width: 1920px;
+    --container-login-width: 420px;
+    --container-pay-width: 500px;
+
+    --container-padding-x: 20px;
+    --container-login-padding-x: 20px;
+    --container-pay-padding-x: 20px;
+    --container-large-padding-x: 20px;
+    --transition-duration: 0.2s;
+
+    --Corner-radius: 10px;
+
+    --Black2:#0f0f0f;
+    --White:#ffffff;
+    --Graybutton:#404040;
+    --Black3:#1d1d1d;
+    --Stroke:#171717;
+    --Black1:#060606;
+    --Black4:#1b1b1b;
+    --Text-gray-Dark:#a5a5a5;
+    --Text-gray-medium-light:#b6b8bd;
+    --Stroke2:#242424;
+    --Gray5:#2d2d2e;
+    --Color:#cccccc;
+    --Text-gray-Dark-2:#6b6b6b;
+
+    --gradient-main: var(--Gr1);
+
+    --Gr1: linear-gradient(90deg, #24fe41 0%, #fdfc47 100%);
+    --Gr1hover: linear-gradient(90deg, #11e12d 0%, #fdd547 100%);
+    --Gr2: linear-gradient(223.26deg, #4e9f0d 0%, #0bbc87 100%);
+    --Gr2hover: linear-gradient(223.26deg, #428908 0%, #0fac7d 100%);
+    --Gr3: linear-gradient(223.26deg, #fc3e02 0%, #fca702 100%);
+    --Gr3hover: linear-gradient(223.26deg, #e43700 0%, #e76f00 100%);
+    --Stroke_Color: linear-gradient(180deg, #c5fc45 0%, #0e2e16 50%, #19642a 100%);
+    --Strokegradient: linear-gradient(180deg, #343434 0%, #191b18 50%, #343434 100%);
+}

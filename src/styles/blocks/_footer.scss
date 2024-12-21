@@ -1,0 +1,136 @@
+.footer {
+    @include flex-column(32);
+    padding-bottom: 32px;
+    padding-top: 24px;
+
+    &__hr {
+        margin-block: 0;
+    }
+
+    &__list {
+        @include flex-column(20);
+
+        &-item {
+            flex: 1;
+        }
+
+        &-link {
+            width: 100%;
+            @include flex-row(10, space-between);
+            align-items: center;
+            @include font-manrope-16-semibold;
+            color: var(--Text-gray-Dark, #A5A5A5);
+        }
+    }
+
+    &__bottom {
+        @include flex-row(32);
+        align-items: center;
+        flex-wrap: wrap-reverse;
+    }
+
+    &__row {
+        @include flex-row(8);
+        align-items: center;
+
+        &--layout-right {
+            @include flex-column(8);
+
+            & > * {
+                flex: 1 !important;
+                width: 100%;
+            }
+        }
+
+        &--tablet-reverse {
+            @include tablet {
+                flex-direction: column-reverse;
+                gap: 32px;
+            }
+        }
+
+        &--tablet-reverse {
+            &.footer__row--layout-right {
+                gap: 32px;
+            }
+        }
+
+        &--gap-20 {
+            gap: 20px;
+        }
+
+        @include tablet {
+            @include flex-column(8);
+
+            & > * {
+                flex: 1!important;
+                width: 100%;
+            }
+        }
+
+        & > * {
+            flex: 0 1 50% !important;
+        }
+    }
+
+    &__buttons {
+        //margin-top: 32px;
+        //margin-bottom: 32px;
+
+        &-item {
+            @include flex-row(5, center);
+            align-items: center;
+            flex: 1;
+            width: 100%;
+
+            border-radius: 10px;
+            background: var(--Black3, #1D1D1D);
+            color: var(--White, #FFF);
+            @include font-manrope-24-bold;
+
+            height: 80px;
+            padding: 8px 20px;
+        }
+    }
+
+    &__info {
+        color: var(--Text-gray-Dark, #A5A5A5);
+        @include font-manrope-12-medium;
+        opacity: 0.5;
+
+        @include tablet {
+            text-align: center;
+            width: 100%;
+        }
+    }
+
+    &__payments {
+        padding: 15px 42px;
+        @include flex-column(10);
+        align-items: center;
+        margin-inline: auto;
+
+        flex: 1;
+
+        border-radius: 10px;
+        border: 1px solid #343434;
+
+        &-list {
+            @include flex-row(10, center);
+        }
+    }
+
+    &__socials {
+        @include flex-column(10);
+        padding-bottom: 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+
+        color: var(--White, #FFF);
+        @include font-manrope-20-medium;
+
+        &-item {
+            @include flex-row(10, space-between);
+            align-items: center;
+        }
+    }
+}

@@ -1,0 +1,70 @@
+/*CSS*/
+.burger {
+    @include reset-button;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    border-radius: 150px;
+    padding: 16px;
+    flex: 0 0 auto;
+
+    background: var(--Gr1);
+
+    transition: all .3s ease-in-out;
+
+    @include mobile {
+        width: 42px;
+        height: 42px;
+        padding: 8px;
+    }
+
+    &__line {
+        width: 100%;
+        height: 3px;
+        background: #000;
+        margin: 3px auto;
+        transition: all .3s ease-in-out;
+    }
+
+    &--inverted {
+        background: var(--Black2, #0F0F0F);
+
+        .burger__line {
+            background: rgba(255, 255, 255, 1);
+        }
+    }
+
+    /*Animate lines*/
+    &--open {
+        background: #000;
+
+        @include mobile {
+            border: 0.667px solid #5E5E5E;
+            background: linear-gradient(152deg, #111 14.89%, #213221 84.78%);
+        }
+
+        .burger__line {
+            margin: 0 !important;
+            background: rgba(255, 255, 255, 1);
+
+            @include mobile {
+                background: rgba(181, 252, 69, 1);
+            }
+        }
+        .burger__line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger__line:nth-child(1) {
+            transform: translateY(3px) rotate(45deg);
+        }
+
+        .burger__line:nth-child(3) {
+            transform: translateY(-3px) rotate(-45deg);
+        }
+    }
+}

@@ -1,0 +1,69 @@
+.instruction {
+    @include flex-column(8);
+
+    &__item {
+        @include flex-row(30);
+        flex-wrap: wrap;
+
+        padding: 32px 40px;
+        border-radius: 32px;
+        background: var(--Black3, #1D1D1D);
+
+        @include mobile {
+            padding: 24px 20px;
+        }
+    }
+
+    &__info {
+        @include flex-column(8);
+        flex: 1 0;
+    }
+
+    &__number {
+        @include flex-center;
+        @include square(40px);
+        margin-bottom: 8px;
+        border-radius: 50%;
+
+        border: 0.667px solid #5E5E5E;
+        background: linear-gradient(152deg, #111 14.89%, #213221 84.78%);
+
+        @include font-manrope-20-semibold;
+        color: #24FE41;
+        text-align: center;
+    }
+
+    &__title {
+        @include font-manrope-28-semibold;
+        color: var(--White, #FFF);
+
+        @include mobile {
+            @include font-manrope-20-semibold;
+        }
+    }
+
+    &__description {
+        @include font-manrope-18-medium;
+        color: var(--Text-gray-Dark, #A5A5A5);
+
+        @include mobile {
+            @include font-manrope-18-medium;
+        }
+    }
+
+    &__image {
+        width: 450px;
+        height: auto;
+        border-radius: 20px;
+        flex: 0 0 auto;
+
+        @include mobile {
+            width: 100%;
+        }
+    }
+
+    &-page {
+        color: var(--Text-gray-Dark, #A5A5A5);
+        @include font-manrope-20-medium;
+    }
+}

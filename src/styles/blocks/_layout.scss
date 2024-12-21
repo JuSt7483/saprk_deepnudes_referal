@@ -1,0 +1,118 @@
+.layout {
+    &-home {
+        display: flex;
+        flex-direction: row;
+        min-height: 100dvh;
+        overflow: hidden;
+        background: var(--Black2, #0F0F0F);
+    
+        @include tablet {
+            flex-wrap: wrap;
+            overflow: auto;
+        }
+
+        &__first {
+            min-height: 100dvh;
+            @include flex-column;
+            padding-bottom: 28px;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    
+        &__scrollable {
+            width: 568px;
+            flex: 1 0 auto;
+            overflow: auto;
+            padding-inline: 58px;
+    
+            @include tablet {
+                padding-inline: 0;
+            }
+    
+            @include mobile {
+                width: 100%;
+            }
+            
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    
+        &__not-scrollable {
+            flex: 0 1 auto;
+            width: 100%;
+    
+            padding: 20px;
+    
+            @include tablet {
+                display: none;
+            }
+        }
+    }
+
+    &-right {
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+        background: var(--Black2, #0F0F0F);
+        gap: 20px;
+        padding-block: 20px;
+        height: 100dvh;
+    
+        @include desktop {
+            overflow: auto;
+            flex-wrap: wrap;
+            padding-block: 0;
+        }
+    
+        &__scrollable {
+            width: 364px;
+            flex: 1 0 auto;
+            overflow-y: auto;
+
+            @include flex-column(8);
+
+            @include desktop {
+                width: 100%;
+            }
+            
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    
+        &__not-scrollable {
+            @include flex-column;
+            flex: 0 1 auto;
+            width: 100%;
+            min-height: calc(100dvh - 20px * 2);
+            height: calc(100dvh - 20px * 2);
+
+            @include desktop {
+                min-height: 100dvh;
+                height: 100dvh;
+            }
+
+            &-header, &-banner {
+                border-radius: 0 !important;
+                width: 100vw !important;
+                margin-inline: -20px;
+            }
+        }
+
+        &__buttons {
+            @include flex-row(7);
+
+            &-item {
+                @include flex-row(8, center);
+                align-items: center;
+                border-radius: 16px;
+                background: var(--Black3, #1D1D1D);
+                flex: 1;
+                @include font-manrope-18-semibold;
+                height: 60px;
+            }
+        }
+    }
+}

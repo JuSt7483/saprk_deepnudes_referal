@@ -1,0 +1,12 @@
+.modallanguage {
+  @include flex-column;
+
+  &__heading {
+    align-self: center;
+    @include text-gradient;
+    @include font-inter-20-black-italic;
+    font-weight: 900;
+
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,42 @@
+.expandable {
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 25px;
+        width: 100%;
+        left: 0;
+        right: 0;
+        height: 25px; /* Высота градиента */
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--Black2, #0F0F0F) 70%);
+        pointer-events: none; /* Чтобы градиент не блокировал клики */
+    }
+
+    &--expanded {
+        &::after {
+            display: none;
+        }
+    }
+
+    &__text {
+        overflow: hidden;
+        position: relative;
+        transition: height 0.3s ease;
+
+        margin-bottom: 5px;
+    }
+
+    &__button {
+        @include reset-button;
+        @include flex-row(5);
+        align-items: center;
+        @include text-gradient;
+        @include font-manrope-16-bold;
+    }
+
+    &__icon {
+        &--rotated {
+            transform: rotate(180deg);
+        }
+    }
+}

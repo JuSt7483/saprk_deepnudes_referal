@@ -1,0 +1,139 @@
+.modalsupport {
+    @include flex-row(2);
+    flex-wrap: wrap;
+    overflow: auto;
+
+    @include tablet {
+        width: 100%;
+    }
+
+    &__heading {
+        color: var(--White, #FFF);
+        text-align: center;
+        font-family: var(--font-manrope);
+        font-size: 44px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 120%; /* 52.8px */
+        letter-spacing: -0.88px;
+    }
+
+    &-form {
+        @include flex-column(16);
+        border-radius: 0px 32px 32px 0px;
+        background: var(--Black3, #1D1D1D);
+        padding: 40px;
+
+        &__row {
+            @include flex-row(12);
+            flex-wrap: wrap;
+        }
+
+        @include tablet {
+            width: 100% !important;
+            flex: 1;
+        }
+
+        &__input {
+            flex: 1;
+            border-radius: 12px;
+            background: var(--Black2, #0F0F0F);
+            border: none;
+            outline: none;
+            padding: 18px 12px 18px 20px;
+
+            color: var(--Text-gray-Dark, #A5A5A5);
+            @include font-manrope-16-regular;
+        }
+
+        &__textarea {
+            width: 100%;
+            flex: 1;
+            resize: none;
+            height: 207px;
+        }
+
+        &__button {
+            height: 60px;
+            padding: 18px 20px;
+            border-radius: 12px;
+            border: 2px dashed var(--Black1, #060606);
+            background: var(--Black4, #1B1B1B);
+            flex: 1;
+            width: 100%;
+
+            color: var(--Text-gray-Dark, #A5A5A5);
+            @include font-manrope-16-medium;
+        }
+
+        &__upload {
+            flex: 1;
+            width: 100%;
+
+            .ant-upload {
+                width: 100%;
+            }
+        }
+
+        &__accept {
+            @include flex-row(4, center);
+            align-items: center;
+        }
+
+        &__message {
+            justify-content: center;
+            text-align: center;
+            @include font-manrope-16-medium;
+            color: green;
+
+            &--error {
+                color: red;
+            }
+        }
+    }
+
+    &-blocks {
+        @include flex-column(2);
+        @include font-manrope-20-medium;
+        color: var(--Text-gray-Dark, #A5A5A5);
+
+        @include tablet {
+            width: 100% !important;
+            flex: 1;
+        }
+
+        &__item {
+            border-radius: 32px;
+            background: var(--Black3, #1D1D1D);
+        }
+    }
+
+    &-email {
+        @include flex-column(20, center);
+        align-items: center;
+        padding-block: 41px 36px;
+
+        &__content {
+            @include flex-row(12);
+            @include svg-current;
+        }
+    }
+
+    &-info {
+        @include flex-column(37, center);
+        align-items: center;
+        padding-inline: 33px;
+        flex: 1;
+        text-align: center;
+
+        @include tablet {
+            padding: 49px 37px;
+        }
+    }
+
+    &-socials {
+        @include flex-center;
+        padding: 38px 20px 37px 20px;
+        flex: 0;
+    }
+}

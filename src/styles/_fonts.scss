@@ -1,0 +1,342 @@
+@mixin font-manrope-16-semibold {
+    // Manrope/16/Semibold //
+   font-family: var(--font-manrope);
+   font-weight: 600;
+   font-size: 16px; 
+   line-height: 150.0%;
+   text-decoration: none;
+   letter-spacing: normal; } 
+
+@mixin font-manrope-16-medium {
+    // Manrope/16/Medium //
+   font-family: var(--font-manrope);
+   font-weight: 500;
+   font-size: 16px; 
+   line-height: 150.0%;
+   text-decoration: none;
+   letter-spacing: normal; } 
+
+@mixin font-manrope-16-bold {
+    // Manrope/16/Bold //
+   font-family: var(--font-manrope);
+   font-weight: 700;
+   font-size: 16px; 
+   line-height: 150.0%;
+   text-decoration: none;
+   letter-spacing: normal; } 
+
+@mixin font-manrope-16-regular {
+    // Manrope/16/Regular //
+   font-family: var(--font-manrope);
+   font-weight: 400;
+   font-size: 16px; 
+   line-height: 150.0%;
+   text-decoration: none;
+   letter-spacing: 5.0%; } 
+
+@mixin font-manrope-16-extrabold {
+    // Manrope/16/Extrabold //
+   font-family: var(--font-manrope);
+   font-weight: 800;
+   font-size: 16px; 
+   line-height: 150.0%;
+   text-decoration: none;
+   letter-spacing: normal; } 
+
+@mixin font-manrope-14-medium {
+    // Manrope/14/Medium //
+   font-family: var(--font-manrope);
+   font-weight: 500;
+   font-size: 14px; 
+   line-height: 150.0%;
+   text-decoration: none;
+   letter-spacing: 2.0%; } 
+
+@mixin font-manrope-14-semibold {
+    // Manrope/14/Semibold //
+   font-family: var(--font-manrope);
+   font-weight: 600;
+   font-size: 14px; 
+   line-height: 150.0%;
+   text-decoration: none;
+   letter-spacing: normal; } 
+
+@mixin font-manrope-14-regular {
+    // Manrope/14/Regular //
+   font-family: var(--font-manrope);
+   font-weight: 400;
+   font-size: 14px; 
+   line-height: 150.0%;
+   text-decoration: none;
+   letter-spacing: 5.0%; } 
+
+@mixin font-manrope-20-medium {
+    // Manrope/20/Medium //
+   font-family: var(--font-manrope);
+   font-weight: 500;
+   font-size: 20px; 
+   line-height: 150.0%;
+   text-decoration: none;
+   letter-spacing: normal; } 
+
+@mixin font-manrope-20-bold {
+    // Manrope/20/Bold //
+   font-family: var(--font-manrope);
+   font-weight: 700;
+   font-size: 20px; 
+   line-height: 135.0%;
+   text-decoration: none;
+   letter-spacing: 5.0%; } 
+
+@mixin font-manrope-20-semibold {
+    // Manrope/20/Semibold //
+   font-family: var(--font-manrope);
+   font-weight: 600;
+   font-size: 20px; 
+   line-height: 120.0%;
+   text-decoration: none;
+   letter-spacing: -2.0%; } 
+
+@mixin font-manrope-20-extrabold {
+    // Manrope/20/Extrabold //
+   font-family: var(--font-manrope);
+   font-weight: 800;
+   font-size: 20px; 
+   line-height: 120.0%;
+   text-decoration: none;
+   letter-spacing: -2.0%; } 
+
+@mixin font-manrope-18-semibold {
+    // Manrope/18/Semibold //
+   font-family: var(--font-manrope);
+   font-weight: 600;
+   font-size: 18px; 
+   line-height: 150.0%;
+   text-decoration: none;
+   letter-spacing: normal; } 
+
+@mixin font-manrope-18-medium {
+    // Manrope/18/Medium //
+   font-family: var(--font-manrope);
+   font-weight: 500;
+   font-size: 18px; 
+   line-height: 150.0%;
+   text-decoration: none;
+   letter-spacing: -2.0%; } 
+
+@mixin font-manrope-18-bold {
+    // Manrope/18/Bold //
+   font-family: var(--font-manrope);
+   font-weight: 700;
+   font-size: 18px; 
+   line-height: 135.0%;
+   text-decoration: none;
+   letter-spacing: normal; } 
+
+@mixin font-manrope-24-bold {
+    // Manrope/24/Bold //
+   font-family: var(--font-manrope);
+   font-weight: 700;
+   font-size: 24px; 
+   line-height: 150.0%;
+   text-decoration: none;
+   letter-spacing: normal; } 
+
+@mixin font-manrope-24-semibold {
+    // Manrope/24/Simibold //
+   font-family: var(--font-manrope);
+   font-weight: 600;
+   font-size: 24px; 
+   line-height: 135.0%;
+   text-decoration: none;
+   letter-spacing: 1.2%; } 
+
+@mixin font-manrope-40-bold {
+    // Manrope/40/Bold //
+   font-family: var(--font-manrope);
+   font-weight: 700;
+   font-size: 40px; 
+   line-height: 120.0%;
+   text-decoration: none;
+   letter-spacing: -2.0%; } 
+
+@mixin font-manrope-40-medium {
+    // Manrope/40/Medium //
+   font-family: var(--font-manrope);
+   font-weight: 500;
+   font-size: 40px; 
+   line-height: 120.0%;
+   text-decoration: none;
+   letter-spacing: normal; } 
+
+@mixin font-manrope-12-regular {
+    // Manrope/12/Regular //
+   font-family: var(--font-manrope);
+   font-weight: 400;
+   font-size: 12px; 
+   line-height: 150.0%;
+   text-decoration: none;
+   letter-spacing: 5.0%; } 
+
+@mixin font-manrope-12-medium {
+    // Manrope/12/Medium //
+   font-family: var(--font-manrope);
+   font-weight: 500;
+   font-size: 12px; 
+   line-height: 150.0%;
+   text-decoration: none;
+   letter-spacing: normal; } 
+
+@mixin font-manrope-32-extrabold {
+    // Manrope/32/Extrabold //
+   font-family: var(--font-manrope);
+   font-weight: 800;
+   font-size: 32px; 
+   line-height: 150.0%;
+   text-decoration: none;
+   letter-spacing: normal; } 
+
+@mixin font-manrope-32-bold {
+    // Manrope/32/Bold //
+   font-family: var(--font-manrope);
+   font-weight: 700;
+   font-size: 32px; 
+   line-height: 120.0%;
+   text-decoration: none;
+   letter-spacing: -2.0%; } 
+
+@mixin font-manrope-28-semibold {
+    // Manrope/28/Semibold //
+   font-family: var(--font-manrope);
+   font-weight: 600;
+   font-size: 28px; 
+   line-height: 120.0%;
+   text-decoration: none;
+   letter-spacing: -2.0%; } 
+
+@mixin font-manrope-28-bold {
+    // Manrope/28/Bold //
+   font-family: var(--font-manrope);
+   font-weight: 700;
+   font-size: 28px; 
+   line-height: 120.0%;
+   text-decoration: none;
+   letter-spacing: -2.0%; } 
+
+@mixin font-manrope-60-bold {
+    // Manrope/60/Bold //
+   font-family: var(--font-manrope);
+   font-weight: 700;
+   font-size: clamp(32px, 5vw, 60px);
+   line-height: 120.0%;
+   text-decoration: none;
+   letter-spacing: -2.0%; } 
+
+@mixin font-inter-20-black-italic {
+    // Inter/20/Black Italic //
+   font-family: var(--font-inter);
+   font-weight: 900;
+   font-size: 20px; 
+   line-height: 130.0%;
+   text-decoration: none;
+   font-style: italic;
+   letter-spacing: normal; } 
+
+@mixin font-inter-18-black-italic {
+    // Inter/18/Black Italic //
+   font-family: var(--font-inter);
+   font-weight: 800;
+   font-size: 18px; 
+   line-height: 130.0%;
+   text-decoration: none;
+   font-style: italic;
+   letter-spacing: normal; } 
+
+@mixin font-inter-16-black-italic {
+    // Inter/16/Black Italic //
+   font-family: var(--font-inter);
+   font-weight: 800;
+   font-size: 16px; 
+   line-height: 130.0%;
+   text-decoration: none;
+   font-style: italic;
+   letter-spacing: normal; } 
+
+@mixin font-inter-24-black-italic {
+    // Inter/24/Black italic //
+   font-family: var(--font-inter);
+   font-weight: 800;
+   font-size: 24px; 
+   line-height: 130.0%;
+   text-decoration: none;
+   font-style: italic;
+   letter-spacing: normal; } 
+
+@mixin font-inter-32-black-italic {
+    // Inter/32/Black italic //
+   font-family: var(--font-inter);
+   font-weight: 800;
+   font-size: 32px; 
+   line-height: 130.0%;
+   text-decoration: none;
+   font-style: italic;
+   letter-spacing: normal; 
+   padding-inline: 2px; } 
+
+@mixin font-roboto-mono-16-medium {
+    // Roboto Mono/16/Medium //
+   font-family: var(--font-roboto-mono);
+   font-weight: 500;
+   font-size: 16px; 
+   line-height: 150.0%;
+   text-decoration: none;
+   letter-spacing: normal; } 
+
+@mixin font-roboto-mono-12-medium {
+    // Roboto Mono/12/Medium //
+   font-family: var(--font-roboto-mono);
+   font-weight: 500;
+   font-size: 12px; 
+   line-height: 150.0%;
+   text-decoration: none;
+   letter-spacing: normal; } 
+
+@mixin font-roboto-mono-20-medium {
+    // Roboto Mono/20/Medium //
+   font-family: var(--font-roboto-mono);
+   font-weight: 500;
+   font-size: 20px; 
+   line-height: 150.0%;
+   text-decoration: none;
+   letter-spacing: normal; } 
+
+@mixin font-roboto-mono-14-medium {
+    // Roboto Mono/14/Medium //
+   font-family: var(--font-roboto-mono);
+   font-weight: 500;
+   font-size: 14px; 
+   line-height: 150.0%;
+   text-decoration: none;
+   letter-spacing: normal; } 
+
+@mixin font-roboto-mono-14-bold {
+    // Roboto Mono/14/Bold //
+   font-family: var(--font-roboto-mono);
+   font-weight: 700;
+   font-size: 14px; 
+   line-height: 150.0%;
+   text-decoration: none;
+   letter-spacing: normal; } 
+
+@mixin font-roboto-mono-10-medium {
+    // Roboto Mono/10/Medium //
+   font-family: var(--font-roboto-mono);
+   font-weight: 500;
+   font-size: 10px; 
+   line-height: 150.0%;
+   text-decoration: none;
+   letter-spacing: normal; } 
+ /* Developed by sawacrow
+https://www.buymeacoffee.com/sawacrow :If you wanna support, you can buy me a pizza :)
+https://github.com/sawacrow/typograpgy-generator-figma : You can check the source code here and contribute or support
+*/

@@ -1,0 +1,41 @@
+.heading {
+    width: 100%;
+    @include flex-center;
+    gap: 20px;
+    flex-direction: column;
+    margin-block: 20px 40px;
+
+    &__title {
+        @include font-manrope-60-bold;
+        text-align: center;
+    }
+    
+
+    &__breadcrump {
+        @include flex-row(8);
+        
+
+        &-item {
+            @include font-manrope-14-regular;
+            color: var(--Color, #CCC);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            &:last-child {
+                color: #63C811;
+            }
+
+            &:not(:first-child)::before {
+                content: '';
+                width: 4px;
+                height: 4px;
+                flex-shrink: 0;
+                margin-top: 3px;
+
+                border-radius: 50%;
+                background-color: #fff;
+            }
+        }
+    }
+}

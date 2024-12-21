@@ -1,0 +1,156 @@
+.button {
+    @include reset-button;
+    display: inline-flex;
+    gap: 20px;
+    align-items: center;
+
+    flex: 0 1 auto;
+
+    cursor: pointer;
+    box-sizing: border-box;
+
+    white-space: nowrap;
+
+    &--variant {
+        &-primary {
+            padding: 19px 24px;
+            box-shadow: 0px 0px 70px -20px rgba(53, 230, 54, 0.40);
+
+            @include hover {
+                box-shadow: none !important;
+            }
+        }
+
+        &-secondary {
+            padding: 19px 24px;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        &-small {
+            padding: 4px 12px;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        &-arrow {
+            padding: 14px 9px;
+            justify-content: center;
+        }
+    }
+
+    &--size {
+        &-M, &-m {
+            @include font-roboto-mono-20-medium;
+            border-radius: 20px;
+            width: 100%;
+        }
+
+        &-S, &-s {
+            @include font-roboto-mono-16-medium;
+            border-radius: 16px;
+            width: 100%;
+        }
+
+        &-secondary {
+            @include font-manrope-16-semibold;
+            border-radius: 12px;
+            width: 100%;
+        }
+        &-small {
+            @include font-manrope-16-medium;
+            border-radius: 150px;
+            flex: 0;
+            width: fit-content;
+        }
+        &-arrow {
+            @include square(50px);
+            border-radius: 15px;
+        }
+    }
+
+    &--color {
+        &-green1 {
+            color: var(--Black2, #0F0F0F);
+            background: var(--Gr1);
+            @include hover {
+                background: var(--Gr1hover);
+            }
+        }
+
+        &-green2 {
+            color: var(--White, #FFF);
+            background: var(--Gr2);
+            box-shadow: 0px 0px 30px -20px rgba(53, 230, 54, 0.40), 0px 0px 80px 0px rgba(13, 159, 133, 0.60);
+            @include hover {
+                background: var(--Gr2hover);
+            }
+        }
+
+        &-orange {
+            color: var(--White, #FFF);
+            background: var(--Gr3);
+            box-shadow: 0px 0px 80px 0px rgba(252, 62, 2, 0.60);
+            @include hover {
+                background: var(--Gr3hover);
+            }
+        }
+
+        &-white {
+            background: var(--White, #FFF);
+            color: var(--Black2, #0F0F0F);
+        }
+
+        &-gray {
+            background: var(--Gray-button, #404040);
+            box-shadow: none !important;
+            color: var(--White, #FFF);
+            border: 2px solid transparent;
+            @include hover {
+                background: none !important;
+                border-color: var(--Gray-button, #404040);
+            }
+        }
+
+        &-green3 {
+            background: linear-gradient(to left, #235024 0%, #1D1D1D 50%);
+            @include border-gradient(2, 16px, linear-gradient(to left, #235024 0%, #1D1D1D 50%));
+        }
+    }
+
+    &__part {
+        &--primary {
+            &:only-child {
+                margin-inline: auto;
+            }
+            // &:nth-child(1) {
+            //     margin-right: auto;
+            // }
+            &:nth-child(2) {
+                justify-self: center;
+                margin-inline: auto;
+            }
+            // &:nth-child(3) {
+            //     margin-left: auto;
+            // }
+        }
+    }
+
+    &__icon {
+        @include flex-center;
+        @include svg-current;
+        
+        flex: 0 0 auto;
+        &--M, &--m {
+            @include square(24px);
+        }
+
+        &--S, &--s {
+            @include square(20px);
+        }
+
+        &--arrow, &--arrow {
+            @include square(17px);
+        }
+    }
+}
