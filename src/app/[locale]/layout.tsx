@@ -1,3 +1,5 @@
+
+
 import type { Metadata } from "next";
 import { Manrope, Inter, Roboto_Mono } from "next/font/google"
 import "@/styles/index.scss";
@@ -6,6 +8,11 @@ import Providers from "./providers/providers";
 import { ClerkProvider } from "@clerk/nextjs";
 import IntlProvider from "./providers/IntlProvider";
 import { GoogleTagManager } from '@next/third-parties/google'
+import Footer from "@/components/Footer/Footer";
+import Header from "@/components/Header/Header";
+
+
+
 
 export const metadata: Metadata = {
   title: {
@@ -64,28 +71,32 @@ export default async function RootLayout({
   const localeIntl = await getLocale();
   const now = await getNow();
   const timeZone = await getTimeZone();
+  console.log(locale, localeIntl)
   return (
-    <ClerkProvider>
-      <html lang={locale} className={`${fontInter.variable} ${fontManrope.variable} ${fontRobotoMono.variable}`}>
-        <head>
-          <meta name="robots" content="noindex,nofollow" />
-          <GoogleTagManager gtmId="GTM-WFSLSNZG" />
-        </head>
-        <body>
-          <IntlProvider
-            messages={messages}
-            locale={localeIntl}
-            now={now}
-            timeZone={timeZone}
-          >
-            <Providers>
-              <main>
-                {children}
-              </main>
-            </Providers>
-          </IntlProvider>
-        </body>
-      </html>
-    </ClerkProvider>
-  );
+		<ClerkProvider>
+			<html
+				lang={locale}
+				className={`${fontInter.variable} ${fontManrope.variable} ${fontRobotoMono.variable}`}
+			>
+				<head>
+					<meta name='robots' content='noindex,nofollow' />
+					<GoogleTagManager gtmId='GTM-WFSLSNZG' />
+				</head>
+				<body>
+					<IntlProvider
+						messages={messages}
+						locale={localeIntl}
+						now={now}
+						timeZone={timeZone}
+					>
+						<Providers>
+							<main>
+								{children}
+							</main>
+						</Providers>
+					</IntlProvider>
+				</body>
+			</html>
+		</ClerkProvider>
+	)
 }

@@ -112,7 +112,7 @@ const Navbar = () => {
                 <hr className="navbar__hr" />
                 <div className="navbar-list__wrapper">
                     <ul className="navbar-list">
-                        <Link href="/" className="navbar-list__item" onClick={() => { closeModal() }}>
+                        {/* <Link href="/" className="navbar-list__item" onClick={() => { closeModal() }}>
                             <div className="icon navbar-list__icon">
                                 <HomeIcon />
                             </div>
@@ -123,14 +123,14 @@ const Navbar = () => {
                                 <DollarIcon />
                             </div>
                             Buy coins
-                        </Link>
+                        </Link> */}
                         <Link href="/referal" className="navbar-list__item" onClick={() => { closeModal() }}>
                             <div className="icon navbar-list__icon">
                                 <UsersIcon />
                             </div>
                             Referal program
                         </Link>
-                        <Link href="/gallery" className="navbar-list__item" onClick={() => { closeModal() }}>
+                        {/* <Link href="/gallery" className="navbar-list__item" onClick={() => { closeModal() }}>
                             <div className="icon navbar-list__icon">
                                 <WallpaperIcon />
                             </div>
@@ -141,7 +141,7 @@ const Navbar = () => {
                                 <NotebookIcon />
                             </div>
                             Blog
-                        </Link>
+                        </Link> */}
                         <div className="navbar-list__item" onClick={() => { openModal(<ModalSupport />) }}>
                             <div className="icon navbar-list__icon">
                                 <DialogIcon />

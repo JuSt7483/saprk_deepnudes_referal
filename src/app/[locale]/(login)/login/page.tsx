@@ -25,13 +25,13 @@ const LoginPage = () => {
 
     if (!signIn || !signUp || !isLoaded) return null;
 
-    if(isSignedIn) return router.push("/generation");
+    if(isSignedIn) return router.push("/");
   
     const signInWith = (strategy: OAuthStrategy) => {
       return signIn.authenticateWithRedirect({
         strategy,
-        redirectUrl: `/sso-callback${searchParams.has("referal") ? "?referal=" + searchParams.get("referal") : ""}`,
-        redirectUrlComplete: searchParams.get("redirect") || "/generation"
+        // redirectUrl: `/sso-callback${searchParams.has("referal") ? "?referal=" + searchParams.get("referal") : ""}`,
+        redirectUrlComplete: searchParams.get("redirect") || "/",
       })
     }
   
