@@ -20,85 +20,91 @@ const ReferalPage = async () => {
 
 	console.log(dbUser, 'dbuser')
 	return (
-        <>
-            <Header />
-		<div className='referal-page container' style={{ marginBottom: '80px' }}>
-			<Heading breadcrump={[{ href: 'referal', title: 'Referal program' }]}>
-				Referal program
-			</Heading>
-			<div className='referal-page__inner'>
-				<div className='referal-page__main'>
-					<div className='referal-page__part'>
-						<ul className='referal-page__grid'>
-							<li className='referal-page__block'>
-								<div className='referal-page__block-header'>
-									<div className='icon referal-page__block-icon'>
-										<CopyIcon />
+		<>
+			<Header />
+			<div className='referal-page container' style={{ marginBottom: '80px' }}>
+				<Heading breadcrump={[{ href: 'referal', title: 'Referal program' }]}>
+					Referal program
+				</Heading>
+				<div className='referal-page__inner'>
+					<div className='referal-page__precents'>
+						<h4 className='referal-page__precents-title'>
+							YOUR REFERAL PROGRAM PERCENT
+						</h4>
+						<div className='referal-page__precents-value'>15%</div>
+					</div>
+					<div className='referal-page__main'>
+						<div className='referal-page__part'>
+							<ul className='referal-page__grid'>
+								<li className='referal-page__block'>
+									<div className='referal-page__block-header'>
+										<div className='icon referal-page__block-icon'>
+											<CopyIcon />
+										</div>
+										01
 									</div>
-									01
-								</div>
-								<div className='referal-page__block-text'>
-									<p>Copy the invitation link and send it to your friends</p>
-								</div>
-							</li>
-							<li className='referal-page__block'>
-								<div className='referal-page__block-header'>
-									<div className='icon referal-page__block-icon'>
-										<InviteIcon />
+									<div className='referal-page__block-text'>
+										<p>Copy the invitation link and send it to your friends</p>
 									</div>
-									02
-								</div>
-								<div className='referal-page__block-text'>
-									<p>
-										Invite people, earn 25% from their deposits, for all their
-										time
-									</p>
-								</div>
-							</li>
-							<li className='referal-page__block'>
-								<div className='referal-page__block-header'>
-									<div className='icon referal-page__block-icon'>
-										<ChartIcon />
+								</li>
+								<li className='referal-page__block'>
+									<div className='referal-page__block-header'>
+										<div className='icon referal-page__block-icon'>
+											<InviteIcon />
+										</div>
+										02
 									</div>
-									03
-								</div>
-								<div className='referal-page__block-text'>
-									<p>
-										Get detailed statistics of registrations and deposits using
-										your link, by day
-									</p>
-								</div>
-							</li>
-							<li className='referal-page__block'>
-								<div className='referal-page__block-header'>
-									<div className='icon referal-page__block-icon'>
-										<CardIcon />
+									<div className='referal-page__block-text'>
+										<p>
+											Invite people, earn 25% from their deposits, for all their
+											time
+										</p>
 									</div>
-									04
+								</li>
+								<li className='referal-page__block'>
+									<div className='referal-page__block-header'>
+										<div className='icon referal-page__block-icon'>
+											<ChartIcon />
+										</div>
+										03
+									</div>
+									<div className='referal-page__block-text'>
+										<p>
+											Get detailed statistics of registrations and deposits
+											using your link, by day
+										</p>
+									</div>
+								</li>
+								<li className='referal-page__block'>
+									<div className='referal-page__block-header'>
+										<div className='icon referal-page__block-icon'>
+											<CardIcon />
+										</div>
+										04
+									</div>
+									<div className='referal-page__block-text'>
+										<p>Copy the invitation link and send it to your friends</p>
+									</div>
+								</li>
+							</ul>
+							<div className='referal-page__input'>
+								<div className='referal-page__input-heading'>
+									Your invitation link:
 								</div>
-								<div className='referal-page__block-text'>
-									<p>Copy the invitation link and send it to your friends</p>
-								</div>
-							</li>
-						</ul>
-						<div className='referal-page__input'>
-							<div className='referal-page__input-heading'>
-								Your invitation link:
+								<ReferalInput id={dbUser?.referalString || ''} />
 							</div>
-							<ReferalInput id={dbUser?.referalString || ''} />
+						</div>
+						<div className='referal-page__part'>
+							<AccountConvert balance={dbUser?.dollars} />
 						</div>
 					</div>
-					<div className='referal-page__part'>
-						<AccountConvert balance={dbUser?.dollars} />
+					<div className='referal-page__table'>
+						<h2 className='referal-page__heading'>Your referals</h2>
 					</div>
 				</div>
-				<div className='referal-page__table'>
-					<h2 className='referal-page__heading'>Your referals</h2>
-				</div>
 			</div>
-		</div>
-        <Footer className="container"/>
-        </>
+			<Footer className='container' />
+		</>
 	)
 }
 

@@ -1,6 +1,42 @@
 .referal-page {
     &__inner {
-        @include flex-column(80);
+        @include flex-column(12);
+    }
+
+    &__precents {
+        @include flex-row(10, space-between);
+        padding: 9px 16px;
+        align-items: center;
+        border-radius: 16px;
+        border: 1px solid transparent;
+        background: linear-gradient(#1D1D1D, #1D1D1D 0) padding-box,
+        var(--Border_Color) border-box;
+        position: relative;
+        overflow: hidden;
+        
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 227px;
+            height: 227px;
+            border-radius: 50%;
+            background-color: #24FE41;
+            opacity: 0.6;
+            filter: blur(100px);
+            right: -100px;
+        }
+
+        &-title {
+            @include font-manrope-20-bold;
+            @include fluid-text(20, 16px);
+        }
+
+        &-value {
+            @include font-manrope-40-medium;
+            position: relative;
+            z-index: 2;
+        }
     }
     
     &__part {

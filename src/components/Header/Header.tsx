@@ -1,7 +1,19 @@
 "use client";
 
 import React, { useEffect, useState } from 'react'
-import {AddCircleIcon, DiamondGoldIcon, Logo, LogoSquareIcon, PlusIcon} from '../UI/svg'
+import {
+	AddCircleIcon,
+	DiamondGoldIcon,
+	Logo,
+	LogoSmall,
+	LogoSquareIcon,
+	PlusIcon,
+	SettingsIcon,
+	DoorIcon,
+	DoorOutIcon,
+	ArrowDown,
+	ArrowRightIcon,
+} from '../UI/svg'
 import Navbar from '../Navbar/Navbar';
 import { useModal } from '@/shared/hooks/useModal';
 import BurgerButton from '../UI/primitives/ButtonBurger/ButtonBurger';
@@ -11,6 +23,10 @@ import { useUser } from '@clerk/nextjs';
 import { Link } from '@/i18n/routing';
 import { getDbUser } from '@/shared/actions/getDbUser';
 import IUser from '@/shared/interfaces/Models/IUser';
+import { Dropdown, MenuProps, Skeleton } from 'antd';
+import Image from 'next/image'
+import { useClerk } from '@clerk/nextjs';
+
 
 interface HeaderProps extends React.HTMLAttributes<HTMLDivElement> {
     children?: React.ReactNode;
@@ -21,6 +37,32 @@ function Header({ className, variant = "default" }: HeaderProps) {
     const { openModal, closeModal } = useModal();
     const { isSignedIn, user, isLoaded } = useUser();
     const [dbUser, setDbUser] = useState<IUser | null>(null);
+    const { signOut } = useClerk();
+
+    const items: MenuProps['items'] = [
+            {
+                key: '1',
+                label: (
+                    <button className='navbar-user__dropdown-button'>
+                        <span className="icon">
+                            <SettingsIcon />
+                        </span>
+                        Edit profile
+                    </button>
+                ),
+            },
+            {
+                key: '2',
+                label: (
+                    <button onClick={() => { signOut() }} className='navbar-user__dropdown-button'>
+                        <span className="icon">
+                            <DoorIcon />
+                        </span>
+                        Log out
+                    </button>
+                ),
+            }
+        ];
 
     useEffect(() => {
         const fetchData = async () => {
@@ -39,16 +81,81 @@ function Header({ className, variant = "default" }: HeaderProps) {
 
     if(variant === "default")
         return (
-            <>
-                <header className={`header header--default ${className ?? ""}`}>
-                    <Link className={`icon header__logo header__logo--absolute`} href={"/"}>
-                        <Logo />
-                    </Link>
-                    <Button size='s' href="/generation" className='header__button header__button--default hidden-mobile'>Undress</Button>
-                    <BurgerButton onClick={() => { openModal(<Navbar />) }} className='header__burger header__burger--default' />
-                </header>
-            </>
-        )
+					<>
+						<header className={`header header--default ${className ?? ''}`}>
+							<Link
+								className={`icon header__logo header__logo--absolute`}
+								href={'/'}
+							>
+								<Logo className='hidden-mobile'/>
+                                <LogoSmall className='visible-mobile' height={44}/>
+							</Link>
+
+							<button
+								onClick={() => {
+									signOut()
+								}}
+								className='header-user__dropdown-button'
+							>
+								<span className='header-user__dropdown-icon icon'>
+									<DoorOutIcon />
+								</span>
+								Log out
+							</button>
+							<div className='header__button-wrapper'>
+								{!isLoaded ? (
+									<Skeleton avatar />
+								) : user ? (
+									<Dropdown
+										menu={{ items }}
+										placement='bottom'
+										arrow={{ pointAtCenter: true }}
+										overlayClassName='navbar-user__dropdown'
+									>
+										<div className='header-user'>
+											<Image
+												src={user.imageUrl}
+												alt='Avatar'
+												width={60}
+												height={60}
+												className='header-user__avatar'
+											/>
+											<div className='header-user__info'>
+												<div className='header-user__info-name'>
+													{user.lastName && user.firstName
+														? user.firstName.slice(0, 1).toUpperCase() +
+														  '. ' +
+														  user.lastName
+														: user.firstName
+														? user.firstName
+														: 'You'}
+													<div className='icon'>
+														<ArrowDown />
+													</div>
+												</div>
+												<div className='navbar-user__info-description hidden-mobile'>
+													Personal space
+												</div>
+											</div>
+										</div>
+									</Dropdown>
+								) : (
+									<Button
+										href='/login'
+										color='gray'
+										className='navbar__button'
+										iconRight={<ArrowRightIcon />}
+										onClick={() => {
+											closeModal()
+										}}
+									>
+										Log in
+									</Button>
+								)}
+							</div>
+						</header>
+					</>
+				)
 
     if(variant === "home")
         return (

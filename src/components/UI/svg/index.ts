@@ -43,6 +43,8 @@ export { default as WallpaperIcon } from "./WallpaperIcon.svg"
 export { default as ArrowDown } from "./ArrowDown.svg"
 export { default as SettingsIcon } from "./SettingsIcon.svg"
 export { default as DoorIcon } from "./DoorIcon.svg"
+export { default as DoorOutIcon } from './DoorOutIcon.svg'
+
 
 // Login
 export { default as CheckCircleIcon } from "./CheckCircleIcon.svg"
