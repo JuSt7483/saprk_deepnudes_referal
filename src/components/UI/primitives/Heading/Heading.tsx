@@ -14,7 +14,7 @@ interface HeadingProps extends HTMLAttributes<HTMLDivElement> {
 const Heading = ({ breadcrump = [], children }: HeadingProps) => {
     return (
         <div className="heading">
-            <ul className="heading__breadcrump">
+            {/* <ul className="heading__breadcrump">
                 <Link className="heading__breadcrump-item" href={"/"}>
                     Home
                 </Link>
@@ -30,7 +30,7 @@ const Heading = ({ breadcrump = [], children }: HeadingProps) => {
                         }
                     </>
                 ))}
-            </ul>
+            </ul> */}
             <h1 className="heading__title">
                 {children}
             </h1>
